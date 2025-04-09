@@ -1,141 +1,116 @@
 
----
+# 🌌 Image Stitching Hub
 
-```markdown
-# 🌌 Image Stiching Hub
-
-**Image Stiching Hub** is an interactive web-based tool that enables users to seamlessly stitch two overlapping images using either traditional computer vision (**SIFT**) or advanced deep learning techniques (**LoFTR**). Powered by **Streamlit**, this project showcases a full pipeline for feature detection, matching, homography estimation, and panorama generation with a clean UI.
+**Image Stitching Hub** is an interactive web-based tool designed to seamlessly stitch two overlapping images. It supports two feature detection methods: the traditional computer vision **SIFT** pipeline and the deep learning-based **LoFTR** approach. Built with **Streamlit**, the project provides a full end-to-end pipeline—from feature detection and matching to homography estimation and panorama generation—with an intuitive and responsive UI.
 
 ---
 
 ## 🚀 Features
 
-- 🧠 LoFTR-based Deep Feature Matching** using Kornia
-- 📷 SIFT-based Classic Keypoint Detection
-- 🎛️ Switch between SIFT, LoFTR, or run both simultaneously
-- 🌈 Clean, responsive UI designed using **Streamlit** + custom **HTML/CSS**
-- 🖼️ Live preview of the stitched panorama
+- **LoFTR-based Deep Feature Matching**: Utilizes Kornia and PyTorch for advanced, transformer-based matching.
+- **SIFT-based Classic Keypoint Detection**: Implements the traditional scale-space, keypoint detection, and matching methods.
+- **Flexible Execution**: Choose between SIFT, LoFTR, or run both methods simultaneously.
+- **User-Friendly UI**: Crafted with Streamlit and enhanced by custom HTML/CSS for a clean and responsive experience.
+- **Live Preview**: Instantly view the generated panorama from the stitched images.
 
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 Visualify/
 ├── app.py                      # Main Streamlit application
 ├── lib/
-│   ├── sift_functions.py       # Custom SIFT pipeline functions
-│   ├── helper_functions.py     # Image utilities (resize, convert)
-│   └── image_stitcher.py       # Matching, descriptors, warping
-├── requirements.txt            # Python dependencies
-└── README.md                   # Project documentation
+│   ├── sift_functions.py       # Functions for the SIFT pipeline
+│   ├── helper_functions.py     # Utility functions (e.g., resizing, color conversion)
+│   └── image_stitcher.py       # Image matching, descriptors, and warping functions
+├── requirements.txt            # Python dependencies and requirements
+└── README.md                   # Project documentation and guidelines
 ```
 
 ---
 
 ## 🔧 Technologies Used
 
-- `OpenCV` — Image processing & homography
-- `Streamlit` — Web application framework
-- `Kornia` — Deep learning feature extraction (LoFTR)
-- `PyTorch` — Backbone for LoFTR model
-- `NumPy` & `PIL` — Array and image utilities
+- **OpenCV** — Powerful image processing library for keypoint detection, matching, and homography estimation.
+- **Streamlit** — Rapid web app framework for building interactive UIs.
+- **Kornia** — Deep learning computer vision library used with the LoFTR model.
+- **PyTorch** — Deep learning framework serving as the backbone for the LoFTR model.
+- **NumPy** & **PIL** — Essential tools for array operations and image processing.
 
 ---
 
 ## 📸 How It Works
 
-### 🔬 SIFT Pipeline:
-- Gaussian Pyramid & DoG generation
-- Scale-space extrema detection
-- Sub-pixel keypoint localization
-- Orientation assignment
-- Descriptor generation
-- Brute-force matching
-- Homography estimation + panorama stitching
+### 🔬 SIFT Pipeline
 
-### 🤖 LoFTR Pipeline:
-- Grayscale conversion
-- LoFTR model loads pretrained weights (`outdoor` config)
-- Feature matching using transformer-based architecture
-- Homography estimation using RANSAC
-- Image warping and blending to generate panorama
+1. **Gaussian Pyramid & DoG Generation**: Constructs scale-space representations.
+2. **Scale-space Extrema Detection**: Identifies potential keypoints.
+3. **Sub-pixel Localization & Orientation Assignment**: Improves keypoint accuracy.
+4. **Descriptor Extraction**: Creates feature descriptors for keypoints.
+5. **Brute-Force Matching**: Matches descriptors between two images.
+6. **Homography Estimation and Stitching**: Aligns images to generate a panorama.
+
+### 🤖 LoFTR Pipeline
+
+1. **Preprocessing**: Converts images to grayscale.
+2. **Feature Matching**: Uses the transformer-based LoFTR model (with pretrained ‘outdoor’ configuration) for matching.
+3. **RANSAC-based Homography Estimation**: Robustly calculates the transformation between images.
+4. **Image Warping and Blending**: Stitches the images together to form a seamless panorama.
 
 ---
 
 ## 🧑‍💻 How to Run Locally
 
-1. **Clone the repository**:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-username/visualify.git
    cd visualify
    ```
 
-2. **Install dependencies**:
+2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the app**:
+3. **Run the Streamlit app:**
    ```bash
    streamlit run app.py
    ```
 
-> 💡 Make sure you are using Python 3.8+ and have a CUDA-compatible GPU if running LoFTR on GPU.
+> **Note:** Ensure you have Python 3.8+ installed. For LoFTR, a CUDA-compatible GPU is recommended for improved performance.
 
 ---
 
 ## 👥 Team Contributions
 
-| Member              | Responsibilities |
-|---------------------|------------------|
-| **Subhash Mishra**  | LoFTR integration with Kornia, Streamlit UI/UX, frontend styling, architecture design |
-| **Avaneesh Pandey** | Gaussian Pyramid, DoG, keypoint detection, SIFT matching & stitching |
-| **Nikhil Kumar**    | Orientation assignment, descriptor extraction, panorama warping, parameter tuning |
-| **Jatin**           | Multithreading, homography estimation, stitching logic, exception handling |
+| Member              | Responsibilities                                                                       |
+|---------------------|----------------------------------------------------------------------------------------|
+| **Subhash Mishra**  | LoFTR integration, Streamlit UI/UX, architecture design, and frontend styling          |
+| **Avaneesh Pandey** | Implementation of Gaussian Pyramid, DoG generation, keypoint detection, SIFT matching, and stitching logic |
+| **Nikhil Kumar**    | Orientation assignment, descriptor extraction, panorama warping, and parameter tuning  |
+| **Jatin**           | Multithreading integration, homography estimation, stitching logic, and robust exception handling |
 
 ---
 
 ## 🧱 Architecture Diagram
 
-```text
-User → Streamlit UI → [Choose SIFT / LoFTR / Both]
-                         ↓
-                Image Preprocessing
-                ↓             ↓
-       SIFT Pipeline       LoFTR Pipeline
-                ↓             ↓
-          Keypoint Matching (cv2/Kornia)
-                         ↓
-               Homography Estimation
-                         ↓
-                 Panorama Generation
-                         ↓
-                 Stitched Output Preview
-```
+![Image Stitching Architecture](figures/model_architecture.jpeg)
 
----
+
 
 ## 📜 License
 
-This project is open-source and available under the MIT License.
+This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
 ## 🙌 Acknowledgements
 
-- [Kornia](https://github.com/kornia/kornia) for providing the LoFTR model
-- [OpenCV](https://opencv.org/) for image operations and computer vision pipelines
-- [Streamlit](https://streamlit.io) for enabling rapid web app development
+- [Kornia](https://github.com/kornia/kornia) for their excellent computer vision libraries and the LoFTR model.
+- [OpenCV](https://opencv.org/) for providing comprehensive image processing functionalities.
+- [Streamlit](https://streamlit.io/) for enabling rapid development of interactive web applications.
 
 ---
 
-## 📬 Contact
-
-For questions, suggestions or collaboration, feel free to contact:
-- 📧 Subhash Mishra: [your_email@example.com]
-
----
-```
-
-Let me know if you'd like this saved to a file or further customized with links, badges, or visuals.
+Happy Image Stitching!
