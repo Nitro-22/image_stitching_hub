@@ -18,7 +18,7 @@
 ## 📁 Project Structure
 
 ```text
-Visualify/
+Image Stitching Hub/
 ├── app.py                      # Main Streamlit application
 ├── lib/
 │   ├── sift_functions.py       # Functions for the SIFT pipeline
