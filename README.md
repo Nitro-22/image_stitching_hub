@@ -4,7 +4,7 @@
 ```markdown
 # 🌌 Image Stiching Hub
 
-**Visualify** is an interactive web-based tool that enables users to seamlessly stitch two overlapping images using either traditional computer vision (**SIFT**) or advanced deep learning techniques (**LoFTR**). Powered by **Streamlit**, this project showcases a full pipeline for feature detection, matching, homography estimation, and panorama generation with a clean UI.
+**Image Stiching Hub** is an interactive web-based tool that enables users to seamlessly stitch two overlapping images using either traditional computer vision (**SIFT**) or advanced deep learning techniques (**LoFTR**). Powered by **Streamlit**, this project showcases a full pipeline for feature detection, matching, homography estimation, and panorama generation with a clean UI.
 
 ---
 
