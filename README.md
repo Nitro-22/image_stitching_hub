@@ -18,7 +18,7 @@
 ## 📁 Project Structure
 
 ```text
-Image Stitching Hub/
+Image-Stitching-Hub/
 ├── app.py                      # Main Streamlit application
 ├── lib/
 │   ├── sift_functions.py       # Functions for the SIFT pipeline
@@ -64,8 +64,8 @@ Image Stitching Hub/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/visualify.git
-   cd visualify
+   git clone https://github.com/your-username/Image-Stitching-Hub.git
+   cd Image-Stitching-Hub
    ```
 
 2. **Install dependencies:**
