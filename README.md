@@ -2,6 +2,8 @@
 # 🌌 Image Stitching Hub
 
 **Image Stitching Hub** is an interactive web-based tool designed to seamlessly stitch two overlapping images. It supports two feature detection methods: the traditional computer vision **SIFT** pipeline and the deep learning-based **LoFTR** approach. Built with **Streamlit**, the project provides a full end-to-end pipeline—from feature detection and matching to homography estimation and panorama generation—with an intuitive and responsive UI.
+![image](https://github.com/user-attachments/assets/9a4601a9-c1ff-4aec-9b88-4d367431cd63)
+
 
 
 ---
