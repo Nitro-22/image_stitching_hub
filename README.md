@@ -87,10 +87,10 @@ Image-Stitching-Hub/
 
 | Member              | Responsibilities                                                                       |
 |---------------------|----------------------------------------------------------------------------------------|
-| **Subhash Mishra**  | LoFTR integration, Streamlit UI/UX, architecture design, and frontend styling          |
-| **Avaneesh Pandey** | Implementation of Gaussian Pyramid, DoG generation, keypoint detection, SIFT matching, and stitching logic |
+| **Subhash Mishra**  | RANSAC Algorithm, Homography estimation, stitching logic |         |
+| **Avaneesh Pandey** | Implementation of Gaussian Pyramid, keypoint detection, SIFT matching, and LoFtr |
 | **Nikhil Kumar**    | Orientation assignment, descriptor extraction, panorama warping, and parameter tuning  |
-| **Jatin**           | Multithreading integration, homography estimation, stitching logic, and robust exception handling |
+| **Jatin**           | Streamlit UI/UX, architecture design, and frontend styling, stitching logic,  DoG generation |
 
 ---
 
